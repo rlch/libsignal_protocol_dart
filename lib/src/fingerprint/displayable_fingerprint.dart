@@ -27,12 +27,7 @@ class DisplayableFingerprint {
       _getEncodedChunk(fingerprint, 20) +
       _getEncodedChunk(fingerprint, 25);
 
-  String _getEncodedChunk(Uint8List hash, int offset) {
-<<<<<<< HEAD:lib/src/fingerprint/displayable_fingerprint.dart
     final chunk = ByteUtil.byteArray5ToLong(hash, offset).remainder(100000);
-=======
-    var chunk = ByteUtil.byteArray5ToLong(hash, offset) % 100000;
->>>>>>> a0b4bc029623fbd9768e8ad41663ec571c8c1a54:lib/src/fingerprint/DisplayableFingerprint.dart
     return chunk.toString().padLeft(5, '0');
   }
 }
