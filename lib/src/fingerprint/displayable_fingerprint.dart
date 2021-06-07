@@ -27,6 +27,7 @@ class DisplayableFingerprint {
       _getEncodedChunk(fingerprint, 20) +
       _getEncodedChunk(fingerprint, 25);
 
+  String _getEncodedChunk(Uint8List hash, int offset) {
     final chunk = ByteUtil.byteArray5ToLong(hash, offset).remainder(100000);
     return chunk.toString().padLeft(5, '0');
   }
