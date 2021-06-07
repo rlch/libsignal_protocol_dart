@@ -6,12 +6,12 @@ import 'sender_key_record.dart';
 import 'sender_key_store.dart';
 
 class InMemorySenderKeyStore extends SenderKeyStore {
-  final _store = HashMap<SenderKeyName, SenderKeyRecord>();
+  final store = HashMap<SenderKeyName, SenderKeyRecord>();
 
   @override
   Future<SenderKeyRecord> loadSenderKey(SenderKeyName senderKeyName) async {
     try {
-      final record = _store[senderKeyName];
+      final record = store[senderKeyName];
       if (record == null) {
         return SenderKeyRecord();
       } else {
@@ -25,6 +25,6 @@ class InMemorySenderKeyStore extends SenderKeyStore {
   @override
   Future<void> storeSenderKey(
       SenderKeyName senderKeyName, SenderKeyRecord record) async {
-    _store[senderKeyName] = record;
+    store[senderKeyName] = record;
   }
 }
